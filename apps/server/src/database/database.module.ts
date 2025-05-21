@@ -3,6 +3,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigType } from 'src/config/configuration';
 import { Project } from 'src/project/entities/project.entity';
+import { Task } from 'src/task/entities/task.entity';
 import { User } from 'src/user/entities/user.entity';
 
 @Module({
@@ -17,7 +18,7 @@ import { User } from 'src/user/entities/user.entity';
         username: configService.get('database.user', { infer: true }),
         password: configService.get('database.password', { infer: true }),
         database: configService.get('database.name', { infer: true }),
-        entities: [User, Project],
+        entities: [User, Project, Task],
         synchronize: configService.get('database.sync', { infer: true }),
       }),
     }),

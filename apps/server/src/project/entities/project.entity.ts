@@ -1,3 +1,4 @@
+import { Task } from 'src/task/entities/task.entity';
 import { User } from 'src/user/entities/user.entity';
 import {
   Entity,
@@ -7,6 +8,7 @@ import {
   UpdateDateColumn,
   ManyToOne,
   JoinColumn,
+  OneToMany,
 } from 'typeorm';
 
 @Entity()
@@ -24,8 +26,8 @@ export class Project {
   @JoinColumn({ name: 'ownerId' })
   owner: User;
 
-  @Column({ nullable: true })
-  ownerId: number;
+  @OneToMany(() => Task, (tasks) => tasks.project)
+  tasks: Task[];
 
   @CreateDateColumn()
   createdAt: Date;

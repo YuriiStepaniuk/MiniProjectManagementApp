@@ -5,6 +5,7 @@ import { DatabaseModule } from './database/database.module';
 import { validationSchema } from './config/validationSchema';
 import { UserModule } from './user/user.module';
 import { ProjectModule } from './project/project.module';
+import { TaskModule } from './task/task.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { ProjectModule } from './project/project.module';
     DatabaseModule,
     UserModule,
     ProjectModule,
+    TaskModule,
   ],
   controllers: [],
   providers: [],

@@ -1,4 +1,5 @@
 import { Project } from 'src/project/entities/project.entity';
+import { Task } from 'src/task/entities/task.entity';
 import {
   Column,
   CreateDateColumn,
@@ -21,6 +22,9 @@ export class User {
 
   @OneToMany(() => Project, (project) => project.owner)
   projects: Project[];
+
+  @OneToMany(() => Task, (task) => task.assignee)
+  tasks: Task[];
 
   @CreateDateColumn()
   createdAt: Date;
