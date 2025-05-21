@@ -9,7 +9,7 @@ const configuration = () => ({
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     name: process.env.DB_NAME,
-    sync: process.env.NODE_ENV === Environment.PROD,
+    sync: process.env.NODE_ENV === Environment.DEV,
   },
 });
 
