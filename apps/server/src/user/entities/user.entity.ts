@@ -1,7 +1,9 @@
+import { Project } from 'src/project/entities/project.entity';
 import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -16,6 +18,9 @@ export class User {
 
   @Column({ unique: true })
   email: string;
+
+  @OneToMany(() => Project, (project) => project.owner)
+  projects: Project[];
 
   @CreateDateColumn()
   createdAt: Date;
